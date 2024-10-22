@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bungee+Tint&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bungee+Tint&family=League+Spartan:wght@100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bungee+Tint&family=Dancing+Script:wght@400..700&family=League+Spartan:wght@100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Righteous&display=swap" rel="stylesheet">
+    <title>FlavorFiesta:Recipes</title>
+</head>
+<style>
+    .nav{
+        padding-left: 50px;
+        margin-left:30px;
+        font-size: 18px;;
+        text-decoration: none;
+        font-weight:lighter;
+        color : rgba(0, 0, 0, 0.687);
+        transition: color 0.5s ease;
+        font-family: "PT Sans", sans-serif;
+    }
+    .nav:hover{
+        color : rgba(255, 153, 0, 0.845);
+        transform: rotate();
+    }
+    #logo{
+        margin:0px;
+        padding-right: 50px;
+        position: relative;
+        top:20px;
+        left: 38px;
+    }
+    .frozen_header{
+        display:block;
+        background-color: rgb(0, 174, 255);
+        margin-left: 0;
+        margin-right: 0;
+        padding: 20px;;
+    }
+    #frozen_data1{
+        font-family: "Righteous", sans-serif;
+        font-size: 40px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+    }
+    #frozen_data2{
+        font-family: "League Spartan", sans-serif;
+        color: rgb(255, 255, 255);
+        font-size: 18px;
+        font-weight: 450;
+        text-align: center;
+    }
+    #cat{
+        background-color: rgba(0, 179, 255, 0.467);
+        padding:20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 12px;
+        border: 1px solid black;
+    }
+    #cat:hover{
+        box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.198);;
+    }
+    .cat_search #search{
+        border:1px solid black;
+        padding: 15px;
+        position: absolute;        
+        left: 1300px;
+        
+        border-radius: 10px;
+    }
+    .product-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(290px,363px)); */
+    grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+    gap: 20px;
+    padding: 40px 0;
+    }
+    @media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two products per row on medium screens */
+    }
+}
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* One product per row on small screens */
+    }
+}
+    .product-item{
+        border: 1px solid rgba(128, 128, 128, 0.45);
+        display: inline-block;
+        border-radius: 8px;
+        overflow: hidden; /* overflow hidden - it hides the image when it overflow the border */
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .product-item:hover {
+        transform: translateY(-7px);
+    }
+
+    .product-item img {
+        width: 100%;
+        height: 250px;
+        object-fit:cover;
+        transition: transform 0.5s ease;
+    }
+    .product-item:hover img {
+        width: 100%;
+        height: 250px;
+        object-fit:cover;
+        transform: scale3d(1.1,1.1,1.1);
+    }
+    .product-item-content {
+         padding: 15px;
+     }
+  
+    .product-item h3 {
+        margin: 0 0 10px 0;
+        font-family: "League Spartan", sans-serif;
+        font-weight: 500;
+        font-size:20px;
+    }
+  
+    .product-item p {
+        margin: 0;
+        color: #666;
+    }
+    .product-item-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+    }
+  
+    .product-item-actions .cart {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .remove{
+        background-color: rgba(255, 0, 0, 0.816);
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        
+    }
+    .remove:hover{
+        background-color: rgb(196, 2, 2);
+    }
+    .product-item-actions .cart:hover {
+        background-color: #45a049;
+    }
+
+    .footer{
+        background-color: rgb(0, 191, 255);
+        color:white;
+        font-family: "Dancing Script", cursive;
+        text-align: center;
+        padding:20px;
+    }
+
+</style>
+<body>
+    <nav>
+        <img src="logo.png" alt="404 Image not found" width="9%" id = "logo">
+        <a href="#" class = "nav" >Home</a>
+        <a href="#" class = "nav" >Categories</a>
+        <a href="#" class = "nav" >Pantry Essentials</a>
+        <a href="#" class = "nav" >Dairy & Eggs</a>
+        <a href="#" class = "nav" >Frozen Foods</a>
+        <a href="#" class = "nav" >Health & Special Diets</a>
+        <a href="#" class = "nav" >Products</a>
+    </nav>
+    <br><br>
+    <div class="frozen_header">
+        <h1 id="frozen_data1">Recipes</h1>
+        <h4 id="frozen_data2">Quick, convenient, and delicious options for any meal</h4>
+    </div>
+    <br><br>
+    <div class="cat_search">
+        <select name="Categories" id="cat">
+            <option value="All">All Categories</option>
+            <option value="Comfort Foods">Comfort Foods</option>
+            <option value="Ready Meals">Ready Meals</option>
+            <option value="Non Veg">Non Veg</option>
+            <!-- <option value="Dry Fruits">Dry Fruits</option> -->
+            <option value="Desserts">Desserts</option>
+            <option value="South Indian">South Indian Cuisine</option>
+            <option value="Drinks">Drinks</option>
+        </select>
+        <label for="search"><input type="search" placeholder="Search frozen foods..." id="search"></label>
+    </div>
+    <br>
+    <div class="product-grid">
+        <div class="product-item" data-category="Comfort Foods">
+          <a href="Rajma.html" target="_blank"><img src="rajma" alt="" width="250" height="200"></a>
+          <div class="product-item-content">
+            <h3>Rajma Chawal</h3>
+            <p>Comfort Food</p>
+            <div class="product-item-actions">
+                <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+            </div>
+        </div>
+        <div class="product-item" data-category="Drinks">
+          <a href="Cappucino.html" target="_blank"><img src="Cappucino.gif" alt="" width="250" height="200"></a>
+          <div class="product-item-content">
+            <h3>Cappucino</h3>
+            <p>Drinks</p>
+            <div class="product-item-actions">
+                <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+            </div>
+        </div>
+
+        
+        <div class="product-item" data-category="Comfort Foods">
+            <a href="CholeMasala.html" target="_blank"><img src="chole.jpg" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>Punjabi Chole Masala</h3>
+                <p>Comfort Foods</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Ready Meals">
+            <a href="FarmhousePizzaRecipe.html" target="_blank"><img src="pizza.gif" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>Frozen Pizza - Farmhouse</h3>
+                <p>$2.99 / 16oz</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Ready Meals">
+            <a href="BhelPuri.html" target="_blank"><img src="Bhelpuri.webp" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>Bhelpuri</h3>
+                <p>Ready Meals</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Comfort Foods">
+            <a href="DalTadka.html" target="_blank"><img src="dal tadka.webp" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>Dal Tadka</h3>
+                <p>Comfort Foods</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Comfort Foods">
+            <img src="khichdi.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Moong Dal Khichdi</h3>
+                <p>Comfort Foods</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Ready Meals">
+            <a href="PaniPuri.html" target="_blank"><img src="Panipuri.jpg" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>Panipuri</h3>
+                <p>Ready Meals</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="South Indian">
+            <a href="Dosa.html" target="_blank"><img src="Dosa.webp" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>Dosa</h3>
+                <p>South Indian</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="South Indian">
+            <img src="idlisambar.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Idli Sambar</h3>
+                <p>South Indian</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="South Indian">
+            <img src="MeduVada.webp" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Medu Vada</h3>
+                <p>South Indian</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="South Indian">
+            <img src="Uttapam.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Uttapam</h3>
+                <p>South Indian</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="South Indian">
+            <img src="Mango Rava.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Mango Rava</h3>
+                <p>South Indian</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="South Indian">
+            <img src="Modak.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Modak</h3>
+                <p>South Indian</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="South Indian">
+            <img src="Kesar kaju katli.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Kesar Kaju Katli</h3>
+                <p>South Indian</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="South Indian">
+            <img src="Prawnfry.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Prawn Fry</h3>
+                <p>South Indian</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="South Indian">
+            <img src="Payasam.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Payasam</h3>
+                <p>South Indian</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="South Indian">
+            <img src="Curd Rice.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Curd Rice</h3>
+                <p>South Indian</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Ready Meals">
+            <a href="VegCutlets.html" target="_blank"><img src="cutlet.jpg" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>Veg Cutlets</h3>
+                <p>$2.99 / 16oz</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Comfort Foods">
+            <img src="alooMatar.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Aloo Matar</h3>
+                <p>Comfort Foods</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Ready Meals">
+            <img src="friedRice.gif" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Fried Rice</h3>
+                <p>Ready Meals</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Desserts">
+            <a href="GulabJamun.html" target="_blank"><img src="gulabJamun.gif" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>Gulab Jamun</h3>
+                <p>Desserts</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Ready Meals">
+            <img src="boiledmomos.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Boiled Momos</h3>
+                <p>Ready Meals</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Ready Meals">
+            <img src="kurkureMomos.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Kurkure Momos</h3>
+                <p>Ready Meals</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Comfort Foods">
+            <img src="dalMakhani" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Dal Makhani</h3>
+                <p>Comfort Foods</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Ready Meals">
+            <a href="FrenchFries.html" target="_blank"><img src="fries.gif" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>French Fries</h3>
+                <p>$2.99 / 16oz</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Ready Meals">
+            <img src="alooParantha.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Aloo Parantha</h3>
+                <p>Ready Meals</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Comfort Foods">
+            <img src="gobi.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Aloo Gobhi</h3>
+                <p>Comfort Foods</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Non Veg">
+            <a href="butterChicken.html" target="_blank"><img src="Butter Chicken.webp" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>Butter Chicken</h3>
+                <p>Non Veg</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Non Veg">
+            <a href="FishCry.html" target="_blank"><img src="fishfry.jpg" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>Fish Fry</h3>
+                <p>Non Veg</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Non Veg">
+            <img src="Cheese Omlette.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Cheese Omlette</h3>
+                <p>Non Veg</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Non Veg">
+            <img src="Egg Curry.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Egg Curry</h3>
+                <p>Non Veg</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Non Veg">
+            <img src="fishcurry.webp" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Fish Curry</h3>
+                <p>Non Veg</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Non Veg">
+            <img src="Chicken Biryani.gif" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Chicken Biryani</h3>
+                <p>Non Veg</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Non Veg">
+            <img src="chickenlollipop.webp" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Chicken Lollipop</h3>
+                <p>Non Veg</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Non Veg">
+            <img src="chicken 65.JPG" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Chicken 65</h3>
+                <p>Non Veg</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Ready Meals">
+            <img src="vadapav.webp" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Vada Pav</h3>
+                <p>Ready Meals</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Drinks">
+            <a href="MangoShake.html" target="_blank"><img src="MangoShake.gif" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>Mango Shake</h3>
+                <p>Drinks</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Drinks">
+            <img src="StrawberryShake.gif" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Strawberry Shake</h3>
+                <p>Drinks</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Ready Meals">
+            <img src="Noodles.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Noodles</h3>
+                <p>Ready Meals</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Ready Meals">
+            <img src="paobhaji.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Pav Bhaji</h3>
+                <p>Ready Meals</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Comfort Foods">
+            <img src="SarsonSaag.webp" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Sarson Ka Saag</h3>
+                <p>Comfort Foods</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Comfort Foods">
+            <img src="kadhi.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Kadhi Pakoda</h3>
+                <p>Comfort Foods</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Drinks">
+            <img src="JaljeeraDrink.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Jaljeera Drink</h3>
+                <p>Drinks</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Comfort Foods">
+            <img src="gajar.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Gajar Mattar</h3>
+                <p>Comfort Foods</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Desserts">
+            <a href="BoondiLadoo.html" target="_blank"><img src="boondiLadoo" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>Boondi Ladoo</h3>
+                <p>Desserts</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Dairy Products">
+            <img src="lassi.webp" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Lassi</h3>
+                <p>$2.99 / 16oz</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Desserts">
+            <a href="coconutBurfi.html" target="_blank"><img src="coconutBurfi.jpg" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>Pink Coconut Burfi</h3>
+                <p>Desserts</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Desserts">
+            <img src="pinkLadoo" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Strawberry Ladoo</h3>
+                <p>Desserts</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Drinks">
+            <a href="BlueMojito.html" target="_blank"><img src="BlueberryCocktail.jpg" alt="" width="250" height="200"></a>
+            <div class="product-item-content">
+                <h3>Blueberry Mojito</h3>
+                <p>Drinks</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Desserts">
+            <img src="Rasgulla.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Rasgulla</h3>
+                <p>Desserts</p>
+                <div class="product-item-actions">
+                      <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+                </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Desserts">
+            <img src="chocoCookie.gif" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Chocolate Cookie</h3>
+                <p>Desserts</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Drinks">
+            <img src="MasalaChai.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Assam Masala Tea</h3>
+                <p>Drinks</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Comfort Foods">
+            <img src="PaneerButterMasala.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Paneer Butter Masala</h3>
+                <p>Comfort Foods</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Desserts">
+            <img src="Gajrela.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Gajrela</h3>
+                <p>Desserts</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-item" data-category="Desserts">
+            <img src="Halwa" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Suji Halwa</h3>
+                <p>Desserts</p>
+                <div class="product-item-actions">
+                    <button class="cart" onclick={Cart(event)}>Add to Cart</button>
+                    <button class="remove" onclick="removeItem(event)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <br><br><br><br>
+    </div>
+    <div class="footer">
+        <h2 id="footData">© 2024 FalvorFiesta's Recipes</h2>
+    </div>
+    <script>
+        const searchInput = document.getElementById('search');
+        const productItems = document.querySelectorAll('.product-item');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            productItems.forEach(function(item) {
+                const productName = item.querySelector('h3').textContent.toLowerCase();
+                const category = item.getAttribute('data-category').toLowerCase();
+                if (productName.includes(searchTerm) || category.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none'; 
+                }
+            });
+        });
+
+        function Cart(event){ // cart mein add krne ke liye 
+            let text = event.target;
+            text.innerText="Added to Cart";
+            text.style.backgroundColor="orange";
+        }
+
+        document.getElementById('cat').addEventListener('change', function() { // food category select karne ke liye
+            const selectedCategory = this.value;
+            const productItems = document.querySelectorAll('.product-item');
+
+            productItems.forEach(item => {
+                if (selectedCategory === 'All') {
+                    item.style.display = 'block';
+                    document.getElementById("frozen_data1").innerText= "All Categories";
+                } else {
+                    item.style.display = item.getAttribute('data-category') === selectedCategory ? 'block' : 'none';
+                    document.getElementById("frozen_data1").innerText= selectedCategory;
+                }
+            });
+        });
+        
+        function removeItem(event) { // food item remove krne ke liye 
+            const buttonClicked = event.target; 
+            const productItem = buttonClicked.closest('.product-item'); 
+            productItem.remove(); 
+        }
+
+    </script>
+</body>
+
+</html>

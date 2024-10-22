@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bungee+Tint&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Righteous&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        .nav{
+        padding-left: 50px;
+        margin-left:30px;
+        font-size: 18px;;
+        text-decoration: none;
+        font-weight:lighter;
+        color : rgba(0, 0, 0, 0.687);
+        transition: color 0.5s ease;
+        font-family: "PT Sans", sans-serif;
+    }
+    .nav:hover{
+        color : rgba(255, 153, 0, 0.845);
+        transform: rotate();
+    }
+    #logo{
+        margin:0px;
+        padding-right: 50px;
+        position: relative;
+        top:20px;
+        left: 38px;
+    }
+    .frozen_header{
+        display:block;
+        background-color: rgb(0, 174, 255);
+        margin-left: 0;
+        margin-right: 0;
+        padding: 20px;;
+    }
+    #frozen_data1{
+        font-family: "Righteous", sans-serif;
+        font-size: 40px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+    }
+    #frozen_data2{
+        font-family: "League Spartan", sans-serif;
+        color: rgb(255, 255, 255);
+        font-size: 18px;
+        font-weight: 450;
+        text-align: center;
+    }
+    #cat{
+        background-color: rgba(0, 179, 255, 0.467);
+        padding:20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 12px;
+        border: 1px solid black;
+    }
+    #cat:hover{
+        box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.198);;
+    }
+    .cat_search #search{
+        border:1px solid black;
+        padding: 15px;
+        position: absolute;        
+        left: 1300px;
+        border-radius: 10px;
+    }
+    .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px,363px));
+    gap: 20px;
+    padding: 40px 0;
+    }
+
+    .product-item{
+        border: 1px solid rgba(128, 128, 128, 0.45);
+        display: inline-block;
+        border-radius: 8px;
+        overflow: hidden; /* overflow hidden - it hides the image when it overflow the border */
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .product-item:hover {
+        transform: translateY(-7px);
+    }
+
+    .product-item img {
+        width: 100%;
+        height: 250px;
+        object-fit:cover;
+    }
+    .product-item-content {
+         padding: 15px;
+     }
+  
+    .product-item h3 {
+        margin: 0 0 10px 0;
+        font-family: "League Spartan", sans-serif;
+        font-weight: 500;
+        font-size:20px;
+    }
+  
+    .product-item p {
+        margin: 0;
+        color: #666;
+    }
+    .product-item-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+    }
+  
+    .product-item-actions button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+  
+    .product-item-actions button:hover {
+        background-color: #45a049;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="logo.png" alt="404 Image not found" width="9%" id = "logo">
+        <a href="#" class = "nav" >Home</a>
+        <a href="#" class = "nav" >Categories</a>
+        <a href="#" class = "nav" >Pantry Essentials</a>
+        <a href="#" class = "nav" >Dairy & Eggs</a>
+        <a href="#" class = "nav" >Frozen Foods</a>
+        <a href="#" class = "nav" >Health & Special Diets</a>
+        <a href="#" class = "nav" >Products</a>
+    </nav>
+    <br><br>
+    <div class="frozen_header">
+        <h1 id="frozen_data1">Frozen Foods</h1>
+        <h4 id="frozen_data2">Quick, convenient, and delicious options for any meal</h4>
+    </div>
+    <br><br>
+    <div class="cat_search">
+        <select name="Categories" id="cat">
+            <option value="All">All Categories</option>
+            <option value="Veg">Vegetables</option>
+            <option value="Ready">Ready Meals</option>
+            <option value="fruit">Fruits</option>
+            <option value="des">Desserts</option>
+        </select>
+        <label for="search"><input type="search" placeholder="Search frozen foods..." id="search"></label>
+    </div>
+    <br>
+    <div class="product-grid" id="productGrid">
+        <div class="product-item" data-category="vegetables">
+          <img src="frozenVegi.webp" alt="" width="250" height="200">
+          <div class="product-item-content">
+            <h3>Frozen Mixed Vegetables</h3>
+            <p>$2.99 / 16oz</p>
+          </div>
+        </div>
+        <div class="product-item" data-category="Fruits">
+            <img src="berryMix.jpeg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Frozen Berry Mix</h3>
+                <p>$2.99 / 16oz</p>
+            </div>
+        </div>
+        <div class="product-item" data-category="Pizza">
+            <img src="pizza.jpeg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Frozen Pizza - Farmhouse</h3>
+                <p>$2.99 / 16oz</p>
+            </div>
+        </div>
+        <div class="product-item" data-category="Icecream">
+            <img src="icecream.webp" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Strawberry Icecream</h3>
+                <p>$2.99 / 16oz</p>
+            </div>
+        </div>
+        <div class="product-item" data-category="Rasmalai">
+            <img src="rasamalai.jpg" alt="" width="250" height="200">
+            <div class="product-item-content">
+                <h3>Rasmalai</h3>
+                <p>$2.99 / 16oz</p>
+            </div>
+        </div>
+        <!-- Add more items here -->
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('search');
+        const productItems = document.querySelectorAll('.product-item');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            productItems.forEach(function(item) {
+                const productName = item.querySelector('h3').textContent.toLowerCase();
+                const category = item.getAttribute('data-category').toLowerCase();
+                if (productName.includes(searchTerm) || category.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none'; 
+                }
+            });
+        });
+    </script>
+</body>
+</html>

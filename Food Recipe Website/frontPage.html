@@ -1,0 +1,250 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlavorFiesta</title>
+    <style>
+        body{
+            background-color: rgb(176, 172, 172);
+        }
+        .tag1{
+            background-color: rgba(255, 255, 255, 0.794);
+            border: 1px solid white;
+            margin:0px;
+            padding : 12px;
+            display: flex;
+            flex-direction: row;
+        }
+        .tag1 img{
+            width: 10%;
+            padding-left:250px;
+        }
+        .contactHead{
+            background-color: rgba(5, 216, 40, 0.908);
+            position:absolute;
+            right: 7px;
+            top:8px;
+            padding:20px;
+            padding-left:110px;
+            padding-right:40px; 
+            border-radius: 10px;
+        }
+        .contactHead img{
+            position:absolute;
+            right: 7px;
+            top:3px;
+            /* padding:20px;
+            padding-left:40px;
+            padding-right:80px; */
+            /* border-radius: 10px; */
+        }
+        .contactHead img{
+            padding:0px;
+            padding-right:225px;
+            width:50px;
+            /* -webkit-filter: grayscale(100%); */
+            /* filter: invert(100%); */
+        }
+        .tag2{
+            background-color: rgb(255, 140, 0);
+            padding:25px;
+        }
+        .tag2 a{
+            padding-left: 145px;
+            padding-right: 155px;
+            text-decoration:none;
+            color:rgb(237, 236, 236);
+            font-size: 17px;
+        }
+        .tag2 a:link,a:visited{
+            text-decoration: none;
+        }
+        .tag2 a:hover,a:active{
+            font-size: 19px;
+            color: rgb(255, 255, 255);
+        }
+        .frontImage img{
+            max-height: 50%;
+            max-width: 100%;
+        }
+        .frontImage{
+            display: flex;
+            /* flex-direction: row; */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="head">
+            <div class="tag1">
+                <img src="https://universityofdundee-computing.github.io/assignment-2-premjoshuatalluri/assets/images/logo-light.png" alt="Error 404 NotFound"  width="10%%" >
+                <div class="contactHead"> 
+                    <img src="https://images.vexels.com/media/users/3/157621/isolated/preview/4e98cf3aacef00c2366ebee02f2ee6c2-telephone-call-icon-by-vexels.png" alt="" width="2%">
+                    +91-884-My-Mindmap
+                </div>
+            </div>
+            <div class="tag2">
+                <a href="#">Home</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Services</a>
+                <a href="#">About</a>
+            </div>
+        </div>
+    </header>
+    <div class="frontImage">
+        <img src="frontImage.jpg" alt="" width="100%">
+        <h1 id="sign"><strong>FREE SIGN UP</strong></h1>
+            <h4 id="sign2">Sign-up takes less than 30 seconds. Get 5 Free Credits on Joining.</h4>
+            <input type="text" placeholder="Enter Your Name" class="sign3"><br>
+            <input type="text" placeholder="Enter Your Username" class="sign3"><br>
+            <input type="text" placeholder="Enter Your Email Id" class="sign3"><br>
+            <input type="text" placeholder="Enter Your Mobile Number" class="sign3"><br>
+            <button id="submit">Submit Now</button>
+        <div class="signup">
+        </div>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlavorFiesta</title>
+    <style>
+        body {
+            background-color: rgb(176, 172, 172);
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+        .tag1 {
+            background-color: rgba(255, 255, 255, 0.794);
+            border: 1px solid white;
+            margin: 0;
+            padding: 12px;
+            display: flex;
+            flex-direction: row;
+        }
+        .tag1 img {
+            width: 10%;
+            padding-left: 250px;
+        }
+        .contactHead {
+            background-color: rgba(5, 216, 40, 0.908);
+            position: absolute;
+            right: 7px;
+            top: 8px;
+            padding: 20px;
+            padding-left: 110px;
+            padding-right: 40px; 
+            border-radius: 10px;
+        }
+        .contactHead img {
+            position: absolute;
+            right: 7px;
+            top: 19px;
+        }
+        .contactHead img {
+            padding: 0;
+            width: 50px;
+        }
+        .tag2 {
+            background-color: rgb(255, 140, 0);
+            padding: 25px;
+        }
+        .tag2 a {
+            padding-left: 145px;
+            padding-right: 155px;
+            text-decoration: none;
+            color: rgb(237, 236, 236);
+            font-size: 17px;
+        }
+        .tag2 a:link, a:visited {
+            text-decoration: none;
+        }
+        .tag2 a:hover, a:active {
+            font-size: 19px;
+            color: rgb(255, 255, 255);
+        }
+        .frontImage {
+            position: relative; /* Set position to relative for absolute positioning of children */
+            max-width: 100%; /* Ensure the image fits within the container */
+        }
+        .frontImage img {
+            width: 100%; /* Make the image responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .signup {
+            background-color: rgba(255, 255, 255, 0.575);
+            padding: 100px;
+            position: absolute; 
+            top: 10%; 
+            left: 70%; 
+            transform: translateX(-30%); 
+            color: white; 
+            text-align: center; 
+            width:400px;
+            height: 500px;
+
+        }
+        .signup h1, .signup h4 {
+            margin: 0; 
+            padding: 5px; 
+            color: black;
+        }
+        .sign3 {
+            display: block; 
+            margin: 10px auto; 
+            padding: 10px; 
+            width: 80%; 
+            border: none; 
+            border-radius: 5px; 
+        }
+        #submit {
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8); 
+            color: black; 
+            cursor: pointer;
+        }
+        #submit:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="head">
+            <div class="tag1">
+                <img src="https://universityofdundee-computing.github.io/assignment-2-premjoshuatalluri/assets/images/logo-light.png" alt="Error 404 Not Found"  width="10%">
+                <div class="contactHead"> 
+                    <img src="https://images.vexels.com/media/users/3/157621/isolated/preview/4e98cf3aacef00c2366ebee02f2ee6c2-telephone-call-icon-by-vexels.png" alt="" width="2%">
+                    +91-884-My-Mindmap
+                </div>
+            </div>
+            <div class="tag2">
+                <a href="#">Home</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Services</a>
+                <a href="#">About</a>
+            </div>
+        </div>
+    </header>
+    <div class="frontImage">
+        <img src="frontImage.jpg" alt="Background Image">
+        <div class="signup">
+            <h1 id="sign"><strong>FREE SIGN UP</strong></h1>
+            <h4 id="sign2">Sign-up takes less than 30 seconds. Get 5 Free Credits on Joining.</h4>
+            <input type="text" placeholder="Enter Your Name" class="sign3" >
+            <input type="text" placeholder="Enter Your Username" class="sign3" >
+            <input type="text" placeholder="Enter Your Email Id" class="sign3" >
+            <input type="text" placeholder="Enter Your Mobile Number" class="sign3" >
+            <button id="submit">Submit Now</button>
+        </div>
+    </div>
+</body>
+</html>

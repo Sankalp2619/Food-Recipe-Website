@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bungee+Tint&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Righteous&display=swap"
+        rel="stylesheet">
+    <title>Fish Fry Recipe</title>
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            margin: 0;
+            padding: 0;
+            font-family: "PT Sans", sans-serif;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #logo {
+            max-width: 120px;
+            flex: 1;
+        }
+
+        .nav {
+            margin: 0 10px;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: lighter;
+            color: rgba(0, 0, 0, 0.687);
+            transition: color 0.5s ease;
+        }
+
+        .nav:hover {
+            color: rgba(255, 153, 0, 0.845);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #logo {
+                margin-bottom: 10px;
+            }
+
+            .nav {
+                margin: 5px 0;
+            }
+        }
+
+        .frozen_header {
+            background-color: rgb(0, 174, 255);
+            padding: 20px;
+            text-align: center;
+        }
+
+        #frozen_data1 {
+            font-family: "Righteous", sans-serif;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+        }
+
+        #frozen_data2 {
+            font-family: "League Spartan", sans-serif;
+            color: white;
+            font-size: 18px;
+            font-weight: 450;
+        }
+
+        .headingText1 {
+            background-color: rgb(236, 236, 236);
+            box-shadow: 2px 2px 5px 5px rgb(179, 179, 179);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .text-content {
+            max-width: 60%;
+            flex: 1;
+            text-align: center;
+        }
+
+        .img1 {
+            max-width: 100%;
+            flex: 1;
+            margin-left: 100px;
+        }
+
+        .img1 img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin-left: 100px;
+        }
+
+        .rating {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .headingText1 {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .text-content,
+            .img1 {
+                max-width: 100%;
+            }
+
+            .img1 {
+                margin-top: 20px;
+                position: relative;
+                right: 110px;
+            }
+        }
+        #text1 {
+            font-size: 50px;
+        }
+
+        #text2 {
+            font-size: 30px;
+        }
+
+        .share-button {
+            background-color: rgb(0, 179, 255);
+            padding: 15px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border: 1px solid white;
+            border-radius: 40px;
+            width: 250px;
+        }
+
+        .share-button:hover {
+            background-color: rgb(255, 136, 0);
+            transition: background-color 0.5s ease;
+        }
+
+        #shareOptions a {
+            text-decoration: none;
+        }
+
+        #rating span {
+            color: rgb(250, 208, 3);
+            font-size: 35px;
+        }
+
+        .headingText2 {
+            background-color: rgb(236, 236, 236);
+            box-shadow: 1px 1px 3px 3px rgb(179, 179, 179);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 20px;
+            border-radius: 5px;
+        }
+
+        .descrip-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 300px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .headingText2 {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .descrip-grid {
+                max-width: 100%;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+
+        /* //////////////////////// */
+
+        .slider-container {
+            position: absolute;
+            width: 100%;
+            max-width: 1600px;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 1px 1px 3px 3px rgb(179, 179, 179);
+            border-radius: 30px;
+
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #ececec;
+            border-radius: 10px;
+        }
+        .ingredients-container {
+    position: relative;
+    width: 100%;
+    max-width: 1600px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 1px 1px 3px 3px rgb(179, 179, 179);
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.ingredients-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.ingredients {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.ingredient-slide {
+    min-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #ececec;
+    border-radius: 10px;
+}
+
+        h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .footer{
+        background-color: rgb(0, 191, 255);
+        color:white;
+        font-family: "Dancing Script", cursive;
+        text-align: center;
+        padding:50px;
+    }
+    #name{
+        /* width: 400px; */
+        /* display: block;  */
+        margin: 10px auto; 
+        padding: 10px; 
+        width: 40%; 
+        border-radius: 5px; 
+    }
+    #review{
+        margin: 10px auto; 
+        padding: 10px; 
+        width: 40%; 
+        border-radius: 5px;     
+    }
+    .reviewTag{
+        box-shadow: 1px 1px 3px 3px rgb(203, 203, 203);
+        padding: 40px;
+        border-radius: 20px;
+        background-color: rgb(242, 239, 239);
+        text-align: center;
+    }
+
+    #submitBtn{
+        padding:20px;
+        padding-left: 60px;
+        padding-right: 60px;
+        border-radius: 30px;
+        box-shadow: 1px 1px 3px 3px rgb(162, 162, 162);
+        background-color: rgb(0, 255, 0);
+    }
+    .userComments{
+        border: 1px solid black;
+        border-radius: 30px;;
+        background-color: rgb(242, 239, 239);
+        box-shadow: 1px 1px 3px 3px rgb(203,203,203);
+    }
+
+
+    .reviewItem {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+}
+    </style>
+</head>
+
+<body>
+    <nav>
+        <img src="logo.png" alt="404 Image not found" id="logo">
+        <a href="#" class="nav">Home</a>
+        <a href="#" class="nav">Categories</a>
+        <a href="#" class="nav">Pantry Essentials</a>
+        <a href="#" class="nav">Dairy & Eggs</a>
+        <a href="#" class="nav">Frozen Foods</a>
+        <a href="#" class="nav">Health & Special Diets</a>
+        <a href="#" class="nav">Products</a>
+    </nav>
+
+    <div class="frozen_header">
+        <h1 id="frozen_data1">Recipes</h1>
+        <h4 id="frozen_data2">Quick, convenient, and delicious options for any meal</h4>
+    </div>
+
+    <div class="headingText1">
+        <div class="text-content">
+            <h1 id="text1">Fish Fry Recipe</h1>
+            <h3 id="text2">By Rabia Dabra</h3>
+            <div class="rating" id="rating">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+            </div>
+            <br><br>
+            <button class="share-button" id="shareBtn" onclick="toggleShareOptions()">SHARE</button>
+            <div class="share-options" id="shareOptions" style="display:none;">
+                <a href="#" onclick="shareOnWhatsApp()"><img src="whatsappLogo.png" alt="" width=50px;"></a>
+                <a href="#" onclick="shareOnInstagram()"><img src="instagramLogo.webp" alt="" width="40px;"></a>
+                <a href="#" onclick="shareOnFacebook()"><img src="facebookLogo.webp" alt="" width="40px;"></a>
+            </div>
+        </div>
+        <div class="img1">
+            <img src="fishfry.jpg" alt="404 Image not found" width="80%">
+        </div>
+    </div>
+
+    <div class="headingText2">
+        <div class="textContent2">
+            <div class="tags">
+                <span><strong>Recipe Tags : </strong></span>
+                <span>Lunch</span>
+                <span>Dinner</span>
+                <span>Non Veg</span>
+            </div>
+
+            <div class="descrip-grid">
+                <div class="item">
+                    <h3>Cooking Time</h3>
+                    <p>60-90  Minutes</p>
+                </div>
+                <div class="item">
+                    <h3>Servings</h3>
+                    <p>2</p>
+                </div>
+                <div class="item">
+                    <h3>Difficulty Level</h3>
+                    <p>Easy</p>
+                </div>
+                <div class="item">
+                    <h3>Category</h3>
+                    <p>Non-Veg</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br><br>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide" id="slide1">
+                <h3>Step1</h3>
+                <p>Marinate the Fish: Mix all marinade ingredients, coat chicken pieces, and let it sit for at least an hour.</p>
+            </div>
+            <div class="slide" id="slide2">
+                <h3>Step2</h3>
+                <p>Cook the Fish: Grill or pan-fry the marinated chicken until cooked through. Set aside.</p>
+            </div>
+            <div class="slide" id="slide3">
+                <h3>Step3</h3>
+                <p>Prepare the Gravy:
+
+                    Heat butter in a pan, add chopped onions, and sauté until golden.
+                    
+                    Add ginger-garlic paste and sauté until fragrant.
+                    
+                    Pour in the tomato puree and cook until the oil separates.
+                    
+                    Add cashew paste, all spices, and salt. Cook for a few minutes.</p>
+            </div>
+            <div class="slide" id="slide4">
+                <h3>Step4</h3>
+                <p>Heat a non-stick pan and add coconut, sugar, fresh cream, and green cardamom powder. Cook, stirring continuously, until the mixture turns golden brown.</p>
+            </div>
+            <div class="slide" id="slide5">
+                <h3>Step5</h3>
+                <p>Put oil in the pot at least 10 cm high and heat the oil to 200°C over medium high heat.</p>
+            </div>
+            <div class="slide" id="slide6">
+                <h3>Step6</h3>
+                <p>For 1 min fry the fries and then wait for then put it into the freezer for 20 min to cool down</p>
+            </div>
+            <div class="slide" id="slide7">
+                <h3>Step7</h3>
+                <p>Then Repeat Fry it until it turns golden.</p>
+            </div>
+            <div class="slide" id="slide8">
+                <h3>Step8</h3>
+                <p>Leave the fries for 30 min to cool.</p>
+            </div>
+            <div class="slide" id="slide9">
+                <h3>Step9</h3>
+                <p>Sprinkle the salt and Seasoning of your choice and then toss it to mix and Serve!</p>
+            </div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">❮</button>
+        <button class="next" onclick="moveSlide(1)">❯</button>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    <div class="ingredients-container">
+        <div class="ingredients-slider">
+            <div class="ingredients">
+                <div class="ingredient-slide" id="slide1">
+                    <h3>Ingredient-1</h3>
+                    <h4><strong>Fish</strong></h4>
+                    <p>1 kg, cut into bite-sized pieces</p>
+                </div>
+                <div class="ingredient-slide" id="slide2">
+                    <h3>Ingredient-2</h3>
+                    <h4><strong>Yogurt</strong></h4>
+                    <p>1/2 cup</p>
+                </div>
+                <div class="ingredient-slide" id="slide3">
+                    <h3>Ingredient-3</h3>
+                    <h4>Ginger-Garlic Paste</h4>
+                    <p>2 tbsp</p>
+                </div>
+                <div class="ingredient-slide" id="slide4">
+                    <h3>Ingredient-4</h3>
+                    <h4>Cardamom Powder: 1/2 tsp</h4>
+                    <p>Nuts: Cashews and almonds, chopped, for garnish</p>
+                </div>
+            </div>
+            <button class="prev" onclick="moveIngredientsSlide(-1)">❮</button>
+            <button class="next" onclick="moveIngredientsSlide(1)">❯</button>
+        </div>
+    </div>
+
+    <div class="reviewTag">
+        <h1>Customer Reviews</h1>
+        <div class="Review">
+            <h4>Name</h4>
+            <input type="text" id="name" name="Name" placeholder="Shubh Naam"> 
+            <br>
+            <h4>Review</h4>
+            <input type="text" id="review" name="Review" placeholder="Samiksha">
+        </div>
+        <br>
+        <button id="submitBtn" onclick={ReviewFunc()}>Submit</button>
+    </div>
+    <br>
+
+    <!-- <div class="userComments">
+        <h5 id="naam"></h5>
+        <p id="rev"></p>
+    </div> -->
+
+    <div class="userComments" id="userComments">
+        <h5></h5>
+    </div>
+    <br>
+    <div class="footer">
+        <h2 id="footData">© 2024 FalvorFiesta's Recipes</h2>
+    </div>
+
+
+
+
+    
+    </div>
+    <script>
+        function toggleShareOptions() {
+            var options = document.getElementById('shareOptions');
+            options.style.display = options.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function generateShareLink() {
+            return 'https://fusionflare.com/recipe/avocado-toast-with-eggs';
+        }
+
+        function shareOnWhatsApp() {
+            var shareLink = generateShareLink();
+            var whatsappUrl = 'https://api.whatsapp.com/send?text=' + encodeURIComponent('Check out this amazing Avocado Toast With Eggs recipe: ' + shareLink);
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function shareOnInstagram() {
+            alert('To share on Instagram, copy this link and paste it in your Instagram post: ' + generateShareLink());
+        }
+
+        function shareOnFacebook() {
+            var shareLink = generateShareLink();
+            var facebookUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareLink);
+            window.open(facebookUrl, '_blank');
+        }
+
+        var stars = document.querySelectorAll('#rating span');
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                stars.forEach((s, i) => {
+                    if (i <= index) {
+                        s.textContent = '★';
+                    } else {
+                        s.textContent = '☆';
+                    }
+                });
+            });
+        });
+
+        // //////////////////////////////
+        let currentSlide = 0;
+        let currentSlide2 = 0;
+
+        function moveSlide(direction) {
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+
+            currentSlide += direction;
+
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+
+            const slider = document.querySelector('.slider');
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function moveIngredientsSlide(direction) {
+    const ingredientSlides = document.querySelectorAll('.ingredient-slide');
+    const totalIngredientSlides = ingredientSlides.length;
+
+    currentSlide2 += direction;
+
+    if (currentSlide2 >= totalIngredientSlides) {
+        currentSlide2 = 0;
+    } else if (currentSlide2 < 0) {
+        currentSlide2 = totalIngredientSlides - 1;
+    }
+
+    const ingredientsSlider = document.querySelector('.ingredients');
+    ingredientsSlider.style.transform = `translateX(-${currentSlide2 * 100}%)`;
+}
+    
+function ReviewFunc() {
+    let name = document.getElementById('name').value;
+    let review = document.getElementById('review').value;
+
+    const reviewDiv = document.createElement('div');
+    reviewDiv.classList.add('reviewItem'); // yeh new class add kr deta hai jo div create hoga after every review
+
+    reviewDiv.innerHTML = `<h3>${name}</h3><p>${review}</p>`;
+
+    document.getElementById('userComments').appendChild(reviewDiv);
+
+    document.getElementById('name').value = '';
+    document.getElementById('review').value = '';
+}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,313 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.logo {
+    margin-left: 20px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav a:hover {
+    color: #ff6347; 
+}
+
+nav li img {
+    width: 30px;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.hii {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+    background-image: url("image.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 20px; 
+}
+
+.hii-content {
+    text-align: center;
+    color: #fff;
+    margin-top: 40px;
+}
+
+.hii-content h3 {
+    font-size: 25px;
+    margin-bottom: 40px;
+    color: black;
+}
+
+.hii-content p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    color: black;
+    text-align: center;
+}
+
+.cuisines {
+    text-align: center;
+    margin-top: 1px;
+    padding: 40px; 
+    background-color: lightcyan;
+}
+
+.cuisines h2 {
+    font-size: 46px;
+    color: black;
+    margin-bottom: 50px;
+}
+
+.cuisine-images {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cuisine-images img {
+    width: 250px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cuisine-images img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.whats-today {
+    text-align: center;
+    padding: 40px;
+    background-color: lightcyan;
+}
+
+.whats-today h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.today-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.today-item {
+    position: relative;
+    width: 250px;
+    height: 400px;
+}
+
+.today-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.today-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.today-item:hover .today-text {
+    opacity: 1;
+}
+
+.today-item img:hover {
+    transform: scale(1.1);
+}
+
+.today-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    cursor: pointer;
+    align-items: center;
+}
+
+.recipes {
+    text-align: center;
+    padding: 40px;
+    background-color: lightcyan;
+}
+
+.recipes h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: #b68f9e;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.filter-btn.active {
+    background-color: #8c6d7a;
+}
+
+.recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.recipe-card {
+    flex: 0 0 auto;
+    width: 250px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.recipe-info {
+    padding: 20px;
+}
+
+.recipe-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.recipe-description {
+    font-size: 14px;
+    color: #666;
+}
+
+#newsletter {
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: lightblue;
+}
+
+.newsletter-form {
+    display: flex;
+    max-width: 500px;
+    margin: 1rem auto;
+}
+
+.newsletter-form input {
+    flex-grow: 1;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.newsletter-form button {
+    background-color: lightblue;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+footer {
+    padding: 2rem 5%;
+    background-color: #f8f8f8;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    color: black;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section a {
+    color: black;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+}

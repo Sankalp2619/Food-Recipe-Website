@@ -1,0 +1,427 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlavorFiesta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Edu+VIC+WA+NT+Beginner:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        .tag1 {
+            background-color: rgba(255, 255, 255, 0.794);
+            border: 1px solid white;
+            margin: 0;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .tag1 img {
+            width: 100px;
+            padding-left: 10px;
+        }
+
+        .contactHead {
+            background-color: rgba(18, 249, 57, 0.908);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .contactHead:hover {
+            box-shadow: 0 0 7px rgb(0, 0, 0);
+            border: 0px;
+        }
+
+        .contactHead img {
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        .tag2 {
+            background-color: rgb(255, 140, 0);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .tag2 a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: rgb(237, 236, 236);
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        .tag2 a:hover {
+            font-size: 18px;
+            color: rgb(255, 255, 255);
+        }
+
+        .frontImage {
+            position: relative;
+            max-width: 100%;
+        }
+
+        .frontImage img {
+            width: 100%;
+            height: auto;
+        }
+
+        .signup {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+            max-width: 90%;
+            width: 400px;
+            box-sizing: border-box;
+        }
+
+        .signup:hover {
+            box-shadow: 0 0 20px #ffffff;
+        }
+
+        .signup h1,
+        .signup h4 {
+            margin: 0;
+            padding: 10px;
+            color: rgb(255, 255, 255);
+        }
+
+        .sign3 {
+            display: block;
+            margin: 10px auto;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        #submit {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #submit:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        input[type="text"]:focus {
+            border-color: #000000;
+            box-shadow: 0 0 20px #00ff00;
+            outline: none;
+        }
+
+        @media (max-width: 768px) {
+            .tag1 {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .tag1 img {
+                padding-left: 0;
+                margin-bottom: 10px;
+            }
+
+            .contactHead {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+
+            .tag2 a {
+                display: block;
+                padding: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .signup {
+                padding: 15px;
+                width: 90%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .signup h1 {
+                font-size: 24px;
+            }
+
+            .signup h4 {
+                font-size: 14px;
+            }
+
+            #submit {
+                padding: 10px;
+            }
+
+            .sign3 {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="head">
+            <div class="tag1">
+                <img src="https://universityofdundee-computing.github.io/assignment-2-premjoshuatalluri/assets/images/logo-light.png" alt="Logo">
+                <div class="contactHead">
+                    <img src="https://images.vexels.com/media/users/3/157621/isolated/preview/4e98cf3aacef00c2366ebee02f2ee6c2-telephone-call-icon-by-vexels.png" alt="Phone Icon">
+                    +91-884-My-Mindmap
+                </div>
+            </div>
+            <div class="tag2">
+                <a href="#">Home</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Services</a>
+                <a href="#">About</a>
+            </div>
+        </div>
+    </header>
+    <div class="frontImage">
+        <img src="frontImage.jpg" alt="Background Image">
+        <div class="signup">
+            <h1 id="sign"><strong>FREE SIGN UP</strong></h1>
+            <h4 id="sign2">Sign-up takes less than 30 seconds. Get 5 Free Credits on Joining.</h4>
+            <input type="text" placeholder="Enter Your Name" class="sign3">
+            <input type="text" placeholder="Enter Your Username" class="sign3">
+            <input type="text" placeholder="Enter Your Email Id" class="sign3">
+            <input type="text" placeholder="Enter Your Mobile Number" class="sign3">
+            <button id="submit">Submit Now</button>
+        </div>
+    </div>
+</body> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlavorFiesta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Edu+VIC+WA+NT+Beginner:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Concert+One&family=Edu+VIC+WA+NT+Beginner:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+        .tag1 {
+            background-color: rgb(255, 255, 255);
+            border: 1px solid white;
+            margin: 0;
+            padding: 12px;
+            display: flex;
+            flex-direction: row;
+        }
+        .tag1 img {
+            width: 10%;
+            padding-left: 250px;
+        }
+        .contactHead {
+            background-color: rgba(18, 249, 57, 0.908);
+            position: absolute;
+            right: 7px;
+            top: 20px;
+            padding: 20px;
+            padding-left: 110px;
+            padding-right: 40px; 
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+        .contactHead:hover{
+            box-shadow: 0 0 7px rgb(0, 0, 0);
+            border:0px;
+        }
+        .contactHead img {
+            position: absolute;
+            right: 235px;
+            top: 5px;
+        }
+        .contactHead img {
+            padding: 0;
+            width: 50px;
+        }
+        .tag2 {
+            background-color: rgb(255, 140, 0);
+            padding: 25px;
+        }
+        .tag2 a {
+            padding-left: 145px;
+            padding-right: 155px;
+            text-decoration: none;
+            color: rgb(237, 236, 236);
+            font-size: 17px;
+        }
+        .tag2 a:link, a:visited {
+            text-decoration: none;
+        }
+        .tag2 a:hover, a:active {
+            font-size: 19px;
+            color: rgb(255, 255, 255);
+        }
+        .frontImage {
+            position: relative; /* Set position to relative for absolute positioning of children */
+            max-width: 100%; /* Ensure the image fits within the container */
+        }
+        .frontImage img {
+            width: 100%; /* Make the image responsive */
+            height: auto; /* Maintain aspect ratio */
+            animation: change 2s infinite ease-in-out;
+        }
+        .signup {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 100px;
+            position: absolute; 
+            top: 10%; 
+            left: 70%; 
+            transform: translateX(-30%); 
+            color: white; 
+            text-align: center; 
+            width:400px;
+            height: 600px;
+
+        }
+        .signup:hover{
+            box-shadow: 0 0 20px #ffffff;
+        }
+        .signup h1, .signup h4 {
+            margin: 0; 
+            padding: 5px; 
+            color: rgb(255, 255, 255);
+        }
+        .sign3 {
+            display: block; 
+            margin: 10px auto; 
+            padding: 10px; 
+            width: 80%; 
+            border: none; 
+            border-radius: 5px; 
+        }
+        #submit {
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8); 
+            color: black; 
+            cursor: pointer;
+        }
+        #submit:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .signup #sign{
+            font-size: 55px;
+            font-family: "Ropa Sans", sans-serif;
+            font-weight: 400;
+        }
+        .signup #sign2{
+            font-family: "Chakra Petch", sans-serif;
+            font-weight: 400;
+            font-size : 17px;
+
+        }
+        .signup .sign3 {
+            padding: 20px;
+            margin: 40px;
+        }
+
+        #submit{
+            padding:20px;
+            padding-right:60px;
+            padding-left:60px;
+            border-radius: 10px;
+            border:1px solid rgba(0, 0, 0, 0.648);
+        }
+        #submit:hover{
+            background-color: rgb(23, 230, 0);
+            color:white;
+            border: 1px solid white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgb(0, 0, 0);
+            
+        }
+        input[type="text"]:focus{
+            border-color: #000000;
+            box-shadow: 0 0 20px #00ff00;
+            outline: none;
+        }
+        @keyframes change{
+            0%{
+                background-image: url(frontImage.jpg);
+            }
+            50%{
+                background-image: url(image1.jpeg);
+            }
+            100%{
+                background-image: url(front);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="head">
+            <div class="tag1">
+                <img src="https://universityofdundee-computing.github.io/assignment-2-premjoshuatalluri/assets/images/logo-light.png" alt="Error 404 Not Found"  width="10%">
+                <div class="contactHead"> 
+                    <img src="https://images.vexels.com/media/users/3/157621/isolated/preview/4e98cf3aacef00c2366ebee02f2ee6c2-telephone-call-icon-by-vexels.png" alt="" width="2%">
+                    +91-884-My-Mindmap
+                </div>
+            </div>
+            <div class="tag2">
+                <a href="#">Home</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Services</a>
+                <a href="#">About</a>
+            </div>
+        </div>
+    </header>
+    <div class="frontImage">
+        <img src="frontImage.jpg" alt="Background Image" id="front">
+        <div class="signup">
+            <h1 id="sign"><strong>FREE SIGN UP</strong></h1>
+            <h4 id="sign2">Sign-up takes less than 30 seconds. Get 5 Free Credits on Joining.</h4>
+            <input type="text" placeholder="Enter Your Name" class="sign3" >
+            <input type="text" placeholder="Enter Your Username" class="sign3" >
+            <input type="text" placeholder="Enter Your Email Id" class="sign3" >
+            <input type="text" placeholder="Enter Your Mobile Number" class="sign3" >
+            <button id="submit">Submit Now</button>
+        </div>
+    </div>
+</body>
+</html>
